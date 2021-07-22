@@ -1,0 +1,37 @@
+{
+  "name": "userdemowithauth",
+  "version": "1.0.0",
+  "description": "A project to demonstrate how to create a sign in screen to register users and use JWT to help with Authorization and accessing protected routes\"",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamanSB/UserDemoWithAuth.git"
+  },
+  "keywords": [
+    "jwt",
+    "auth",
+    "signin",
+    "user",
+    "demo",
+    "model"
+  ],
+  "author": "RamanSB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RamanSB/UserDemoWithAuth/issues"
+  },
+  "homepage": "https://github.com/RamanSB/UserDemoWithAuth#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "nodemon": "^2.0.12"
+  }
+}
