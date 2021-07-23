@@ -1,6 +1,9 @@
 import UserModel from "../models/userModel.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const register = async (req, res) => {
     try {
@@ -32,8 +35,10 @@ const signIn = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(400).send("Invalid password");
         }
-        //user exists & password is correct
-        return res.status(200).send('Logged in!');
+        //user exists & password is correct - return jsonwebtoken in response header
+        const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET_KEY);
+        console.log(`token: ${token}`);
+        return res.header("jsonwebtoken", token).send(token);
     } catch (err) {
         return res.status(404).json({
             error: JSON.stringify(err)
