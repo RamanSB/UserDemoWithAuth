@@ -2,6 +2,7 @@ import UserModel from "../models/userModel.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import authMiddleware from '../middlewares/auth.js';
 
 dotenv.config();
 
@@ -43,7 +44,11 @@ const signIn = async (req, res) => {
         return res.status(404).json({
             error: JSON.stringify(err)
         });
-    }
+    }   
 }
 
-export default { register, signIn }
+const protectedRouteExample = (req, res) => {
+    return res.status(200).send("This is a private route, you shouldn't see this");
+}
+
+export default { register, signIn, protectedRouteExample };
