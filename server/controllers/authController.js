@@ -17,7 +17,7 @@ const register = async (req, res) => {
         req.body.password = hash;
         const user = new UserModel(req.body);
         await user.save();
-        return res.status(200).send(user);
+        return res.status(201).send(user);
     } catch (err) {
         return res.status(404).json({
             error: JSON.stringify(err)
