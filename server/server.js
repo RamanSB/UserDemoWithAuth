@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import authRoute from './routes/authRoute.js';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ mongoose.connection.on('error', () => {
 })
 
 // Configure the express server application
+app.use(cors());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use('/api/user/', authRoute);
