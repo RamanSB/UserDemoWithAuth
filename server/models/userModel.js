@@ -25,6 +25,9 @@ const userModelSchema = mongoose.Schema({
     "created": {
         default: Date.now,
         type: Date
+    },
+    "counter": {
+        type: Number
     }
 });
 

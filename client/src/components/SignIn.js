@@ -37,17 +37,19 @@ function SignIn() {
       const password = passwordInput.current.value;
       
       let response = await axios.post('http://localhost:3222/api/user/signin', {
-        username: username,
-        password: password
-      });
+          username: username,
+          password: password,
+        }, {withCredentials: "true"}
+      );
       
+      console.log(`[SignIn Component] ${JSON.stringify(response)}`);
+
       if (response.status === 200) {
         setSignedIn(true);
       }
     }
-  
-    return ( signedIn ? <Redirect to="/main"/> : 
 
+    return ( signedIn ? <Redirect to="/main"/> : 
       <form style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
               <TextField
                 label="Username"

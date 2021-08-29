@@ -4,6 +4,7 @@ import authRoute from './routes/authRoute.js';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 const app = express();
@@ -19,13 +20,19 @@ mongoose.connection.on('error', () => {
 })
 
 // Configure the express server application
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+
+
 app.use('/api/user/', authRoute);
-app.use('/', (req, res) => {
-    res.send("Hello this is the default end point");
-});
+// app.use('/', (req, res) => {
+//     res.send("Hello this is the default end point");
+// });
 
 app.listen(process.env.SERVER_PORT, () => {
     console.log(`Server is listening for requests at port ${process.env.SERVER_PORT}`)

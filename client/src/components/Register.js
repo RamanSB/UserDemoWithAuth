@@ -36,8 +36,8 @@ function Register() {
         let response = await axios.post("http://localhost:3222/api/user/register", {
           username: username,
           email: email,
-          password: password
-        });
+          password: password,
+        }, {withCredentials: "true"});
         
         console.log(`Response [x]: ${JSON.stringify(response)}`);
         usernameInput.current.value = "";
@@ -50,7 +50,8 @@ function Register() {
             console.log(`Rendering redirection`);
             setRegisterState(state => ({
                 ...state,
-                isRegistrationSuccessful: true
+                isRegistrationSuccessful: true,
+                counter: 0
             }));
         }
       } 
