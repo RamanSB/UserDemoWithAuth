@@ -9,8 +9,14 @@ const useStyles = makeStyles(theme => ({
     progressBar: {
         alignSelf: "center",
         margin: "auto"
+    },
+    welcomeText: {
+        alignSelf: "center",
+        marginBottom: "5%",
+        textShadow: "0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px #0092FF, 0 0 82px #0092FF, 0 0 92px #0092FF, 0 0 102px #0092FF, 0 0 151px #0092FF",
+        color: "slategray"
     }
-}))
+}));
 
 function Main() {
 
@@ -55,9 +61,9 @@ function Main() {
         globalState.loading ? <CircularProgress className={classes.progressBar}/> : (
             (
                 <div style={{width: "inherit", height: "inherit", display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                    <Typography variant="h3" style={{alignSelf: "center", marginBottom: "5%"}}>Hi {globalState.username}</Typography>
-                    <Button onClick={handleButtonClick} variant="contained" style={{height: "8em", width: "8em", alignSelf: "center", borderRadius: "4em", background: "conic-gradient(red, blue, green, yellow, orange, black, white, purple)"}}><Typography variant="overline" style={{color: "white"}}></Typography></Button>
-                    <Typography variant="subtitle1" style={{alignSelf: "center", marginTop: "5%"}}>You have clicked the button {globalState.counter} times</Typography>
+                    <Typography variant="h3" className={classes.welcomeText}>Hi {globalState.username}</Typography>
+                    <Button onClick={handleButtonClick} variant="contained" style={{height: "8em", width: "8em", alignSelf: "center", borderRadius: "4em", backgroundColor: "white", boxShadow: "0px 2px 8px 10px #94ffff"}}><Typography variant="overline" style={{color: "white"}}></Typography></Button>
+                    <Typography variant="subtitle1" className={classes.welcomeText} style={{alignSelf: "center", marginTop: "5%"}}>You have clicked the button <h4 style={{display:"inline", color: "#007070"}}>{globalState.counter}</h4> times</Typography>
                 </div>
             )
         )
