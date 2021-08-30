@@ -19,10 +19,6 @@ function Register() {
       const username = usernameInput.current.value;
       const email = emailInput.current.value;
       const password = passwordInput.current.value;
-      console.log(`Username input: ${(usernameInput.current.value)}`);
-      console.log(`Email input: ${(emailInput.current.value)}`);
-      console.log(`Password input: ${(passwordInput.current.value)}`);
-      console.log(`Confirm Password input: ${(confirmPasswordInput.current.value)}`);
   
       if (password !== confirmPasswordInput.current.value) {
         setRegisterState({
@@ -39,15 +35,12 @@ function Register() {
           password: password,
         }, {withCredentials: "true"});
         
-        console.log(`Response [x]: ${JSON.stringify(response)}`);
         usernameInput.current.value = "";
         emailInput.current.value = "";
         passwordInput.current.value = "";
         confirmPasswordInput.current.value = "";
-        console.log(`Response [x-data]: ${JSON.stringify(response.data)}`);
         
         if(response.status === 201) {
-            console.log(`Rendering redirection`);
             setRegisterState(state => ({
                 ...state,
                 isRegistrationSuccessful: true,

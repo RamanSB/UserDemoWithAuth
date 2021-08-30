@@ -42,8 +42,6 @@ function SignIn() {
         }, {withCredentials: "true"}
       );
       
-      console.log(`[SignIn Component] ${JSON.stringify(response)}`);
-
       if (response.status === 200) {
         setSignedIn(true);
       }

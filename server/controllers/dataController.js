@@ -2,10 +2,10 @@ import UserModel from '../models/userModel.js';
 
 const incrementCounter = async (req, res) => {
     if (req.user) {
-        console.log(`Increment Counter ha a user.`);
-        let response = await UserModel.findByIdAndUpdate(req.user._id, {
+        let userResponse = await UserModel.findById(req.user._id);
+        await UserModel.findByIdAndUpdate(req.user._id, {
             ...req.user,
-            counter: 2 + 1
+            counter: userResponse.counter + 1
         });
         return res.status(200).send("Counter has been incremented");
     } else {
