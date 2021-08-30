@@ -55,7 +55,7 @@ function Main() {
 
     const handleButtonClick = async (event) => {
         try {
-            const response = await axios.post('/api/user/main/increment', {}, {withCredentials: "true"});
+            await axios.post('/api/user/main/increment', {}, {withCredentials: "true"});
             setGlobalState(state => ({
                 ...state,
                 counter: state.counter + 1
@@ -67,7 +67,7 @@ function Main() {
 
     const handleLogOut = async (event) => {
         try {
-            const response = await axios.get('/api/user/main/signout', {withCredentials: "true"});
+            await axios.get('/api/user/main/signout', {withCredentials: "true"});
             setSignedIn(false);
         } catch (err) {
             console.log(`An error occurred while signing out: ${JSON.stringify(err)}`);

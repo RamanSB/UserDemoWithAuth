@@ -41,6 +41,8 @@ if (process.env.NODE_ENV === 'production') {
 
 }
 
+console.log(`Dirname: ${__dirname}`);
+
 app.listen(PORT || 3222, () => {
     console.log(`Server is listening for requests at port ${PORT}`);
 });

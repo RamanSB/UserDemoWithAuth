@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "A project to demonstrate how to create a sign in screen to register users and use JWT to help with Authorization and accessing protected routes\"",
   "type": "module",
-  "main": "server.js",
+  "main": "./server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./server/server.js",
-    "dev": "concurrently \"npm start\" \"cd client && npm run start\""
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start": "node ./server/server.js",
+    "start-watch": "nodemon ./server/server.js",
+    "dev": "concurrently \"npm start-watch\" \"cd client && npm run start\""
   },
   "repository": {
     "type": "git",
