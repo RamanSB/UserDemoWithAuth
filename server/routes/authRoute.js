@@ -16,6 +16,9 @@ router.route('/main')
     .get(authMiddleware.verifyJwt, authController.protectedRouteExample);
 
 router.route('/main/increment')
-    .post(authMiddleware.verifyJwt, dataController.incrementCounter)
+    .post(authMiddleware.verifyJwt, dataController.incrementCounter);
+
+router.route('/main/signout')
+    .get(authMiddleware.checkUser, authController.signOut);
 
 export default router;
