@@ -24,7 +24,7 @@ mongoose.connection.on('error', (err) => {
 // Configure the express server application
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:3222",
+    origin: "http://localhost:3000",
     credentials: true
 }));
 app.use(bodyParser.urlencoded());
@@ -44,7 +44,3 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(PORT || 3222, () => {
     console.log(`Server is listening for requests at port ${PORT}`);
 });
-
-process.on('uncaughtException', () => {
-    app.close();
-})
