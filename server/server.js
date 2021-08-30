@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 4050;
+const PORT = process.env.PORT || 3222;
 // Connect to MongoDB (Hosted on MongoDB Atlas)8
 const mongoDbUri = `mongodb+srv://RamanSB:${process.env.DB_PASSWORD}@user.8qys6.mongodb.net/User?retryWrites=true&w=majority`;
 // const testMongoDbUri = "mongodb://127.0.0.1:27017";
@@ -31,7 +31,15 @@ app.use(bodyParser.json());
 
 
 app.use('/api/user/', authRoute);
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
 
-app.listen(PORT || 4050, () => {
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+    });
+
+}
+
+app.listen(PORT || 3222, () => {
     console.log(`Server is listening for requests at port ${PORT}`);
 });
