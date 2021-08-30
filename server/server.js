@@ -32,6 +32,6 @@ app.use(bodyParser.json());
 
 app.use('/api/user/', authRoute);
 
-app.listen(PORT || 4050,  () => {
+app.listen(PORT || 4050, () => {
     console.log(`Server is listening for requests at port ${PORT}`);
 });
