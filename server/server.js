@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import path from 'path'
 
 dotenv.config();
 const app = express();
