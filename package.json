@@ -8,7 +8,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "start": "node ./server/server.js",
     "start-watch": "nodemon ./server/server.js",
-    "dev": "concurrently \"npm start-watch\" \"cd client && npm run start\""
+    "dev": "concurrently \"npm start\" \"cd client && npm run start\""
   },
   "repository": {
     "type": "git",
