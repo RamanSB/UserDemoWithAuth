@@ -36,7 +36,7 @@ function SignIn() {
       const username = usernameInput.current.value;
       const password = passwordInput.current.value;
       
-      let response = await axios.post('http://localhost:3222/api/user/signin', {
+      let response = await axios.post('/api/user/signin', {
           username: username,
           password: password,
         }, {withCredentials: "true"}

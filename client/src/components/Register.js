@@ -29,7 +29,7 @@ function Register() {
   
       if(registerState.doPasswordsMatch) {
         //make a post request to the server.  
-        let response = await axios.post("http://localhost:3222/api/user/register", {
+        let response = await axios.post("/api/user/register", {
           username: username,
           email: email,
           password: password,

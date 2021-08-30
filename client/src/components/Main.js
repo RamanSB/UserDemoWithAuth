@@ -39,7 +39,7 @@ function Main() {
     React.useEffect(async () => {
         (async function(){        
             try {
-                let response = await axios.get('http://localhost:3222/api/user/main', {withCredentials: "true"});
+                let response = await axios.get('/api/user/main', {withCredentials: "true"});
                 setGlobalState(state => ({
                     ...state,
                     username: response.data.username,
@@ -55,7 +55,7 @@ function Main() {
 
     const handleButtonClick = async (event) => {
         try {
-            const response = await axios.post('http://localhost:3222/api/user/main/increment', {}, {withCredentials: "true"});
+            const response = await axios.post('/api/user/main/increment', {}, {withCredentials: "true"});
             setGlobalState(state => ({
                 ...state,
                 counter: state.counter + 1
@@ -67,7 +67,7 @@ function Main() {
 
     const handleLogOut = async (event) => {
         try {
-            const response = await axios.get('http://localhost:3222/api/user/main/signout', {withCredentials: "true"});
+            const response = await axios.get('/api/user/main/signout', {withCredentials: "true"});
             setSignedIn(false);
         } catch (err) {
             console.log(`An error occurred while signing out: ${JSON.stringify(err)}`);
