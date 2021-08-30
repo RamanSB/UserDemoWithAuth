@@ -12,11 +12,12 @@ const app = express();
 // Connect to MongoDB (Hosted on MongoDB Atlas)8
 const mongoDbUri = `mongodb+srv://RamanSB:${process.env.DB_PASSWORD}@user.8qys6.mongodb.net/User?retryWrites=true&w=majority`;
 // const testMongoDbUri = "mongodb://127.0.0.1:27017";
-mongoose.connect(mongoDbUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, () => {
+mongoose.Promise = global.Promise;
+mongoose.connect(mongoDbUri, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log(`Successfully connected to db.`);
 });
 mongoose.connection.on('error', () => {
-    throw new Error("Error connecting to database.");
+    throw new Error("Error connecting to database @ {mongoDbUri}.");
 })
 
 // Configure the express server application
