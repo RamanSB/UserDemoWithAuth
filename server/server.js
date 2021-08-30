@@ -31,6 +31,6 @@ app.use(bodyParser.json());
 
 app.use('/api/user/', authRoute);
 
-app.listen(process.env.SERVER_PORT || 4050, () => {
-    console.log(`Server is listening for requests at port ${process.env.SERVER_PORT}`)
+app.listen(process.env.SERVER_PORT || 4050, (port) => {
+    console.log(`Server is listening for requests at port ${port}`);
 });
