@@ -2,7 +2,7 @@
 A project to demonstrate how to create a sign in screen to register users and use JWT to help with Authorization and accessing protected routes. Multiple users are able to login and the server will return data from the db to the front-end via end points depending on who the requesting user/client is.
 
 # Example
-![Demonstrating UserAuthentication & Checking CurrentUSer via JWT]()
+![Demonstrating UserAuthentication & Checking CurrentUSer via JWT](https://github.com/RamanSB/UserDemoWithAuth/blob/master/client/public/user-auth-demo.gif)
 
 
 # Comments
